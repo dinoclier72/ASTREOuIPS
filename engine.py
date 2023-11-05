@@ -37,9 +37,14 @@ class Hypothese:
 allProfiles = []
 allHypothese = []
 
-allHypothese.append(Hypothese({1:"C",4:"Arduino"},3,"Astre"))
-allHypothese.append(Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips"))
-allHypothese.append(Hypothese({15:"!France"},1,"IPS")
+allHypothese.append(Hypothese({1:"C",4:"Arduino"},3,"Astre"))#hypothèse 1: C + arduino = AStre (3points)
+allHypothese.append(Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips"))#hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
+allHypothese.append(Hypothese({15:"!France"},1,"IPS"))#hypothèse 3: étranger = IPS (1 point)
+allHypothese.append(Hypothese({17:"Je ne prends pas de sac à dos,Mon pc portable only"},1,"IPS"))#hypothèse 4: pc portable only ou pas de sac à dos IPS (1 point)
+allHypothese.append(Hypothese({6:"La redstone",3:"Domotique,Robotique"},4,"Astre"))#hypothèse 5: redstone dans minecraft + domotique/robotique = astre (4 points)
+allHypothese.append(Hypothese({14:"Créer du contenu",11:">4"},4,"IPS"))#hypothèse 6: creation de contenu + proche de l'utilisateur = IPS (4 points)
+allHypothese.append(Hypothese({8:"ENSIMERSION",3:"UX/UI"},2,"Ips"))#hypothèse 7: ENSIMERSION + UX/UI = TPS (2 points)
+allHypothese.append(Hypothese({5:"!Non",3:"Domotique,Robotique"},4,"Astre"))#hypothèse 8: démonté quelque chose + domotique/robotique = astre (4 points)
 
 with open('reponses_cleaned.csv', newline='', encoding='utf-8') as csvfile:
 
@@ -53,9 +58,19 @@ with open('reponses_cleaned.csv', newline='', encoding='utf-8') as csvfile:
                 hypotheseValide = True
                 for key,value in hypothese.tests.items():
                     if("!" in value):
-                        if("")
-                    if("," in value):
-                        print("pouet")
+                        if(value[1:] == data[key]):
+                            hypotheseValide = False
+                    elif("," in value):
+                        tempBool = False
+                        temp = value.split(",")
+                        for val in temp:
+                            if(val == data[key]):
+                                tempBool = True
+                        if(not tempBool):
+                            hypotheseValide = False
+                    elif(">" in value):
+                        if(int(data[key]) <= int(value[1:])):
+                            hypotheseValide = False
                     elif(data[key] != value):
                         hypotheseValide = False
                 if(hypotheseValide):
