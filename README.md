@@ -2,24 +2,17 @@
 programme qui exploite des données récoltés auprès des étudiants de 3ème année pour déterminer leur option
 ```mermaid
 classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
+      class Profil{
+            +int scoreAstre
+            +int scoreIPS
+            +String resultatFinal
+            +addIPS()
+            +addAstre()
+            +finalDecision()
       }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
+      class Hypothese{
+            +dict tests
+            +int score
+            +String option
       }
 ```
