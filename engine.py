@@ -1,5 +1,6 @@
 #utilisation du corpus de donnée pour définir si l'étudiant sera astre ou ips
 import csv
+import json
 
 #hypothèse 1: C + arduino = AStre (3points)
 #hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
@@ -23,7 +24,9 @@ class Profil:
     def add_Astre(self,valeur):
          self.score_astre += valeur
     def decision(self):
-        if(self.score_ips > self.score_astre):
+        if(self.score_ips == self.score_astre):
+            self.resultat_final = "Undefined"
+        elif(self.score_ips > self.score_astre):
             self.resultat_final = "IPS"
         else:
              self.resultat_final = "Astre"
@@ -79,4 +82,16 @@ with open('reponses_cleaned.csv', newline='', encoding='utf-8') as csvfile:
                     else:
                         profilActuel.add_IPS(hypothese.poids)
             profilActuel.decision()
-            print(profilActuel.__dict__)
+            allProfiles.append(profilActuel)
+
+with open("result.json","w") as file:
+    file.write("{\n")
+    file.write("\t\"profiles\":[\n")
+    for profil in allProfiles:
+        file.write("\t\t")
+        json.dump(profil.__dict__,file)
+        if(profil != allProfiles[-1]):
+            file.write(",")
+        file.write("\n")
+    file.write("\t]\n")
+    file.write("}")
