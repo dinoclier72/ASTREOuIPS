@@ -1,10 +1,19 @@
 import dash
 from dash import dcc, html, Input, Output
 import json
+import engine
 
-# Read the data from the JSON file
-with open('result.json') as f:
-    data = json.load(f)
+app = dash.Dash(__name__)
+
+# Function to read data from the JSON file
+def read_json_file(file_path):
+    with open(file_path) as f:
+        data = json.load(f)
+    return data
+
+data = read_json_file('result.json')
+
+allHypothese = engine.load_hypotheses('hypotheses.json')
 
 # Extracting required data
 identifiers = [profile['identifiant'] for profile in data['profiles']]
@@ -18,11 +27,16 @@ num_etudiants = len(results)
 num_ips = sum(1 for result in results if result == 'IPS')
 num_astres = sum(1 for result in results if result == 'Astre')
 
-app = dash.Dash(__name__)
-
 app.layout = html.Div(children=[
-    html.H1('Option Astre ou IPS', style={'textAlign': 'center'}),
+    html.Div([
+        element for i, hypothesis in enumerate(allHypothese) for element in [
+            html.Label(f'Weight of Hypothesis {i+1}:'),
+            dcc.Input(id=f'weight-{i}', type='number', value=hypothesis.poids),
+            html.Br()
+        ]
+    ], style={'margin': 'auto', 'text-align': 'center'}),
     html.Button('Mettre à jour le graphique', id='button'),
+    html.H1('Option Astre ou IPS', style={'textAlign': 'center'}),
     dcc.Graph(id='graph'),
     html.Div(
         html.Table([
@@ -30,19 +44,33 @@ app.layout = html.Div(children=[
                     style={'border': '10px solid black', 'text-align': 'center'}),
             html.Tr([html.Td(num_etudiants), html.Td(num_ips), html.Td(num_astres)]),
         ], style={'margin': 'auto', 'text-align': 'center'})
-    )
-])
+    ),
+], style={'margin': 'auto', 'text-align': 'center'})
 
 @app.callback(
     Output('graph', 'figure'),
-    Input('button', 'n_clicks')
+    [Input('button', 'n_clicks')] + [Input(f'weight-{i}', 'value') for i in range(len(allHypothese))],
 )
-def update_graph(n_clicks):
-    # Perform any necessary calculations here
-    # For example, you can update the data based on new computations
-    # Make sure to modify the 'figure' attribute accordingly
+def update_graph(n_clicks, *weights):
+    # Update the weights of the hypotheses
+    for i, weight in enumerate(weights):
+        allHypothese[i].poids = weight
 
-    # Example of returning the figure with updated data
+    # Run the engine
+    engine.process_data_and_write_to_json("data_cleaned.csv", "result.json",allHypothese)
+
+    # Reload the data
+    data = read_json_file('result.json')
+    identifiers = [profile['identifiant'] for profile in data['profiles']]
+    ips_scores = [profile['score_ips'] for profile in data['profiles']]
+    text_height = [0 for profile in data['profiles']]
+    astre_scores = [-profile['score_astre'] for profile in data['profiles']]
+    results = [profile['resultat_final'] for profile in data['profiles']]
+
+    num_etudiants = len(results)
+    num_ips = sum(1 for result in results if result == 'IPS')
+    num_astres = sum(1 for result in results if result == 'Astre')
+
     fig = {
         'data': [
             {'x': identifiers, 'y': ips_scores, 'type': 'bar', 'name': 'IPS'},

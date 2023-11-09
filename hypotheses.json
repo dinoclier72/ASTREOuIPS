@@ -1,0 +1,79 @@
+[
+    {
+        "poids": 3,
+        "tests": {
+            "1": "C",
+            "4": "Arduino"
+        },
+        "option": "Astre"
+    },
+    {
+        "poids": 3,
+        "tests": {
+            "6": "Construire des choses",
+            "3": "UX/UI"
+        },
+        "option": "Ips"
+    },
+    {
+        "poids": 1,
+        "tests": {
+            "15": "!France"
+        },
+        "option": "IPS"
+    },
+    {
+        "poids": 2,
+        "tests": {
+            "17": "Je ne prends pas de sac à dos,Mon pc portable only"
+        },
+        "option": "IPS"
+    },
+    {
+        "poids": 4,
+        "tests": {
+            "6": "La redstone",
+            "3": "Domotique,Robotique"
+        },
+        "option": "Astre"
+    },
+    {
+        "poids": 4,
+        "tests": {
+            "14": "Créer du contenu",
+            "11": ">4"
+        },
+        "option": "IPS"
+    },
+    {
+        "poids": 4,
+        "tests": {
+            "8": "ENSIMERSION",
+            "3": "UX/UI"
+        },
+        "option": "Ips"
+    },
+    {
+        "poids": 4,
+        "tests": {
+            "5": "!Non",
+            "3": "Domotique,Robotique"
+        },
+        "option": "Astre"
+    },
+    {
+        "poids": 4,
+        "tests": {
+            "3": "Robotique",
+            "16": "Le fonctionnel"
+        },
+        "option": "Astre"
+    },
+    {
+        "poids": 3,
+        "tests": {
+            "3": "Frontend / Backend"
+        },
+        "option": "IPS"
+    }
+]

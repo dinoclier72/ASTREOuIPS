@@ -1,4 +1,6 @@
 import csv
+#l'engine est incapable de lire les données si il y a l'horodatage
+#nous allons simplement réécrire les données sans l'horodatage
 
 def clean(inputFile,OutputFile):
     newData = []

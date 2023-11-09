@@ -2,19 +2,19 @@
 	"profiles":[
 		{"identifiant": "e2304411", "score_ips": 3, "score_astre": 8, "resultat_final": "Astre"},
 		{"identifiant": "e2302865", "score_ips": 0, "score_astre": 4, "resultat_final": "Astre"},
-		{"identifiant": "e2302916", "score_ips": 13, "score_astre": 8, "resultat_final": "IPS"},
+		{"identifiant": "e2302916", "score_ips": 9, "score_astre": 8, "resultat_final": "IPS"},
 		{"identifiant": "e2302910", "score_ips": 0, "score_astre": 4, "resultat_final": "Astre"},
-		{"identifiant": "S2104315", "score_ips": 11, "score_astre": 0, "resultat_final": "IPS"},
+		{"identifiant": "S2104315", "score_ips": 9, "score_astre": 0, "resultat_final": "IPS"},
 		{"identifiant": "e2103333", "score_ips": 2, "score_astre": 8, "resultat_final": "Astre"},
-		{"identifiant": "e2304445", "score_ips": 7, "score_astre": 4, "resultat_final": "IPS"},
+		{"identifiant": "e2304445", "score_ips": 3, "score_astre": 4, "resultat_final": "Astre"},
 		{"identifiant": "e2304404", "score_ips": 3, "score_astre": 8, "resultat_final": "Astre"},
 		{"identifiant": "e2302875", "score_ips": 5, "score_astre": 0, "resultat_final": "IPS"},
 		{"identifiant": "e2302896", "score_ips": 4, "score_astre": 0, "resultat_final": "IPS"},
-		{"identifiant": "e2102672", "score_ips": 6, "score_astre": 0, "resultat_final": "IPS"},
+		{"identifiant": "e2102672", "score_ips": 2, "score_astre": 0, "resultat_final": "IPS"},
 		{"identifiant": "e2303255", "score_ips": 7, "score_astre": 0, "resultat_final": "IPS"},
 		{"identifiant": "e2304479", "score_ips": 3, "score_astre": 8, "resultat_final": "Astre"},
-		{"identifiant": "u2107883", "score_ips": 5, "score_astre": 15, "resultat_final": "Astre"},
+		{"identifiant": "u2107883", "score_ips": 1, "score_astre": 15, "resultat_final": "Astre"},
 		{"identifiant": "e2203685", "score_ips": 3, "score_astre": 0, "resultat_final": "IPS"},
-		{"identifiant": "e2302916bis", "score_ips": 4, "score_astre": 3, "resultat_final": "IPS"}
+		{"identifiant": "e2302916bis", "score_ips": 0, "score_astre": 3, "resultat_final": "Astre"}
 	]
 }
