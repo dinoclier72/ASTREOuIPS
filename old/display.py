@@ -19,9 +19,9 @@ fig, ax = plt.subplots()
 rects1 = ax.bar(x, ips_scores, width, label='IPS', color='b')
 rects2 = ax.bar(x, astre_scores, width, label='Astre', color='r')  # Adjusted the position for astre
 
-ax.set_xlabel('Identifiers')
+ax.set_xlabel('numéro étudiants ')
 ax.set_ylabel('Scores')
-ax.set_title('Scores by Identifiers and Categories')
+ax.set_title('Option Astre ou IPS')
 ax.set_xticks([i for i in x])
 ax.set_xticklabels(identifiers, rotation=45)
 ax.legend()

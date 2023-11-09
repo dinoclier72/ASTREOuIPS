@@ -25,7 +25,7 @@ class Profil:
          self.score_astre += valeur
     def decision(self):
         if(self.score_ips == self.score_astre):
-            self.resultat_final = "Undefined"
+            self.resultat_final = "None"
         elif(self.score_ips > self.score_astre):
             self.resultat_final = "IPS"
         else:
@@ -38,18 +38,19 @@ class Hypothese:
         self.option = option
 
 allProfiles = []
-allHypothese = []
+allHypothese = [
+    Hypothese({1:"C",4:"Arduino"},3,"Astre"),#hypothèse 1: C + arduino = AStre (3points)
+    Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips"),#hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
+    Hypothese({15:"!France"},1,"IPS"),#hypothèse 3: étranger = IPS (1 point)
+    Hypothese({17:"Je ne prends pas de sac à dos,Mon pc portable only"},2,"IPS"),#hypothèse 4: pc portable only ou pas de sac à dos IPS (1 point)
+    Hypothese({6:"La redstone",3:"Domotique,Robotique"},4,"Astre"),#hypothèse 5: redstone dans minecraft + domotique/robotique = astre (4 points)
+    Hypothese({14:"Créer du contenu",11:">4"},4,"IPS"),#hypothèse 6: creation de contenu + proche de l'utilisateur = IPS (4 points)
+    Hypothese({8:"ENSIMERSION",3:"UX/UI"},2,"Ips"),#hypothèse 7: ENSIMERSION + UX/UI = TPS (2 points)
+    Hypothese({5:"!Non",3:"Domotique,Robotique"},4,"Astre")#hypothèse 8: démonté quelque chose + domotique/robotique = astre (4 points)
+]
 
-allHypothese.append(Hypothese({1:"C",4:"Arduino"},3,"Astre"))#hypothèse 1: C + arduino = AStre (3points)
-allHypothese.append(Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips"))#hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
-allHypothese.append(Hypothese({15:"!France"},1,"IPS"))#hypothèse 3: étranger = IPS (1 point)
-allHypothese.append(Hypothese({17:"Je ne prends pas de sac à dos,Mon pc portable only"},1,"IPS"))#hypothèse 4: pc portable only ou pas de sac à dos IPS (1 point)
-allHypothese.append(Hypothese({6:"La redstone",3:"Domotique,Robotique"},4,"Astre"))#hypothèse 5: redstone dans minecraft + domotique/robotique = astre (4 points)
-allHypothese.append(Hypothese({14:"Créer du contenu",11:">4"},4,"IPS"))#hypothèse 6: creation de contenu + proche de l'utilisateur = IPS (4 points)
-allHypothese.append(Hypothese({8:"ENSIMERSION",3:"UX/UI"},2,"Ips"))#hypothèse 7: ENSIMERSION + UX/UI = TPS (2 points)
-allHypothese.append(Hypothese({5:"!Non",3:"Domotique,Robotique"},4,"Astre"))#hypothèse 8: démonté quelque chose + domotique/robotique = astre (4 points)
 
-with open('reponses_cleaned.csv', newline='', encoding='utf-8') as csvfile:
+with open('data_cleaned.csv', newline='', encoding='utf-8') as csvfile:
 
     spamreader = csv.reader(csvfile, delimiter=',')
 
