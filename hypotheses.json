@@ -1,11 +1,12 @@
 [
     {
-        "poids": 3,
+        "poids": 4,
         "tests": {
             "1": "C",
             "4": "Arduino"
         },
-        "option": "Astre"
+        "option": "Astre",
+        "details": "C + Arduino"
     },
     {
         "poids": 3,
@@ -13,21 +14,24 @@
             "6": "Construire des choses",
             "3": "UX/UI"
         },
-        "option": "Ips"
+        "option": "Ips",
+        "details": "UX/UI + construction dans mincraft"
     },
     {
         "poids": 1,
         "tests": {
             "15": "!France"
         },
-        "option": "IPS"
+        "option": "IPS",
+        "details": "Etranger"
     },
     {
         "poids": 2,
         "tests": {
             "17": "Je ne prends pas de sac à dos,Mon pc portable only"
         },
-        "option": "IPS"
+        "option": "IPS",
+        "details": "Pas de sac ou que le pc portable"
     },
     {
         "poids": 4,
@@ -35,7 +39,8 @@
             "6": "La redstone",
             "3": "Domotique,Robotique"
         },
-        "option": "Astre"
+        "option": "Astre",
+        "details": "Redstone dans minecraft et Robtique/Domotique"
     },
     {
         "poids": 4,
@@ -43,7 +48,8 @@
             "14": "Créer du contenu",
             "11": ">4"
         },
-        "option": "IPS"
+        "option": "IPS",
+        "details": "Intressé par la création et proche de l'utilisateur"
     },
     {
         "poids": 4,
@@ -51,7 +57,8 @@
             "8": "ENSIMERSION",
             "3": "UX/UI"
         },
-        "option": "Ips"
+        "option": "Ips",
+        "details": "ENSIMERSION et UX/UI"
     },
     {
         "poids": 4,
@@ -59,7 +66,8 @@
             "5": "!Non",
             "3": "Domotique,Robotique"
         },
-        "option": "Astre"
+        "option": "Astre",
+        "details": "A démonté quelque chose et est intéressé par la robotique/domotique"
     },
     {
         "poids": 4,
@@ -67,13 +75,15 @@
             "3": "Robotique",
             "16": "Le fonctionnel"
         },
-        "option": "Astre"
+        "option": "Astre",
+        "details": "robotique et le fonctionnel"
     },
     {
         "poids": 3,
         "tests": {
             "3": "Frontend / Backend"
         },
-        "option": "IPS"
+        "option": "IPS",
+        "details": "backend/frontend et esthétique"
     }
 ]

@@ -1,0 +1,79 @@
+button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+button:hover {
+  background-color: #032F3E; /* Change to a different color when hovered over */
+}
+
+.hypothesis-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hypothesis {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.hypothesis > label {
+  flex: 1;
+  text-align: left;
+}
+
+.hypothesis > div {
+  flex: 1;
+}
+
+table, td, th {
+  border: 1px solid;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rc-slider {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.rc-slider-track {
+  background-color: #04AA6D;
+}
+
+.rc-slider-handle {
+  border: solid 2px #04AA6D;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+}
+
+.rc-slider-dot {
+  display: none;
+}
+
+.rc-slider-handle:focus {
+  border-color: #032F3E;
+}
+
+.rc-slider-handle:hover {
+  border-color: #032F3E;
+}
+
+.rc-slider-handle:active {
+  border-color: #032F3E;
+}

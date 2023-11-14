@@ -28,30 +28,39 @@ num_ips = sum(1 for result in results if result == 'IPS')
 num_astres = sum(1 for result in results if result == 'Astre')
 
 app.layout = html.Div(children=[
-    html.Div([
-        element for i, hypothesis in enumerate(allHypothese) for element in [
-            html.Label(f'Weight of Hypothesis {i+1}:'),
-            dcc.Input(id=f'weight-{i}', type='number', value=hypothesis.poids),
-            html.Br()
-        ]
-    ], style={'margin': 'auto', 'text-align': 'center'}),
-    html.Button('Mettre à jour le graphique', id='button'),
     html.H1('Option Astre ou IPS', style={'textAlign': 'center'}),
+    html.Div(className='hypothesis-container', children=[
+html.Div(className='hypothesis', children=[
+    html.Label("hypothèse "+str(i+1)+" "+hypothesis.option+":"+hypothesis.details+" "),
+    dcc.Slider(
+        id=f'weight-{i}',
+        min=1,
+        max=6,
+        step=1,
+        value=hypothesis.poids,
+        marks={i: str(i) for i in range(1, 7)},
+        className='rc-slider',
+    )
+]) for i, hypothesis in enumerate(allHypothese)
+    ], style={'margin': 'auto', 'text-align': 'center'}),
+    html.Br(),
+    html.Button('Sauvergarder les poids', id='save-button'),
     dcc.Graph(id='graph'),
     html.Div(
-        html.Table([
-            html.Tr([html.Th('Nombre d\'étudiants'), html.Th('Nombre d\'IPS'), html.Th('Nombre d\'Astres')],
-                    style={'border': '10px solid black', 'text-align': 'center'}),
-            html.Tr([html.Td(num_etudiants), html.Td(num_ips), html.Td(num_astres)]),
-        ], style={'margin': 'auto', 'text-align': 'center'})
+    id='table-container',  # Add this line
+    children=html.Table([
+        html.Tr([html.Th('Nombre d\'étudiants'), html.Th('Nombre d\'IPS'), html.Th('Nombre d\'Astres')]),
+        html.Tr([html.Td(num_etudiants), html.Td(num_ips), html.Td(num_astres)]),
+    ])
     ),
 ], style={'margin': 'auto', 'text-align': 'center'})
 
 @app.callback(
-    Output('graph', 'figure'),
-    [Input('button', 'n_clicks')] + [Input(f'weight-{i}', 'value') for i in range(len(allHypothese))],
+    [Output('graph', 'figure'),
+     Output('table-container', 'children')],  # Add this line
+    [Input(f'weight-{i}', 'value') for i in range(len(allHypothese))],
 )
-def update_graph(n_clicks, *weights):
+def update_graph(*weights):
     # Update the weights of the hypotheses
     for i, weight in enumerate(weights):
         allHypothese[i].poids = weight
@@ -85,7 +94,20 @@ def update_graph(n_clicks, *weights):
             'plot_bgcolor': 'rgba(0,0,0,0)'
         }
     }
-    return fig
+    # Create the table
+    table = html.Table([
+        html.Tr([html.Th('Nombre d\'étudiants'), html.Th('Nombre d\'IPS'), html.Th('Nombre d\'Astres')]),
+        html.Tr([html.Td(num_etudiants), html.Td(num_ips), html.Td(num_astres)]),
+    ])
+
+    return fig, table  # Return the table as the second output
+
+@app.callback(
+    Output('save-button', 'n_clicks'),
+    [Input('save-button', 'n_clicks')]
+)
+def save_weights(n_clicks):
+    engine.save_hypotheses_to_json(allHypothese, 'hypotheses.json')
 
 if __name__ == '__main__':
     app.run_server(debug=True)

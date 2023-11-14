@@ -32,23 +32,24 @@ class Profil:
              self.resultat_final = "Astre"
 
 class Hypothese:
-    def __init__(self, tests,poids,option):
+    def __init__(self, tests,poids,option,details=""):
         self.poids = poids
         self.tests = tests
         self.option = option
+        self.details = details
 
 allProfiles = []
 allHypothese = [
-    Hypothese({1:"C",4:"Arduino"},3,"Astre"),#hypothèse 1: C + arduino = AStre (3points)
-    Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips"),#hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
-    Hypothese({15:"!France"},1,"IPS"),#hypothèse 3: étranger = IPS (1 point)
-    Hypothese({17:"Je ne prends pas de sac à dos,Mon pc portable only"},2,"IPS"),#hypothèse 4: pc portable only ou pas de sac à dos IPS (1 point)
-    Hypothese({6:"La redstone",3:"Domotique,Robotique"},4,"Astre"),#hypothèse 5: redstone dans minecraft + domotique/robotique = astre (4 points)
-    Hypothese({14:"Créer du contenu",11:">4"},4,"IPS"),#hypothèse 6: creation de contenu + proche de l'utilisateur = IPS (4 points)
-    Hypothese({8:"ENSIMERSION",3:"UX/UI"},4,"Ips"),#hypothèse 7: ENSIMERSION + UX/UI = TPS (2 points)
-    Hypothese({5:"!Non",3:"Domotique,Robotique"},4,"Astre"),#hypothèse 8: démonté quelque chose + domotique/robotique = astre (4 points)
-    Hypothese({3:"Robotique",16:"Le fonctionnel"},4,"Astre"),#hypothèse 9:Robotique + fonctionnel = Astre (3 points)
-    Hypothese({3:"Frontend / Backend"},3,"IPS")#hypothèse 10: frotend/backend + esthétique = IPS (3 points)
+    Hypothese({1:"C",4:"Arduino"},3,"Astre","C + Arduino"),#hypothèse 1: C + arduino = AStre (3points)
+    Hypothese({6:"Construire des choses",3:"UX/UI"},3,"Ips","UX/UI + construction dans mincraft"),#hypothèse 2: construction dans minecraft + uX/UI = IPS (3 points)
+    Hypothese({15:"!France"},1,"IPS","Etranger"),#hypothèse 3: étranger = IPS (1 point)
+    Hypothese({17:"Je ne prends pas de sac à dos,Mon pc portable only"},2,"IPS","Pas de sac ou que le pc portable"),#hypothèse 4: pc portable only ou pas de sac à dos IPS (1 point)
+    Hypothese({6:"La redstone",3:"Domotique,Robotique"},4,"Astre","Redstone dans minecraft et Robtique/Domotique"),#hypothèse 5: redstone dans minecraft + domotique/robotique = astre (4 points)
+    Hypothese({14:"Créer du contenu",11:">4"},4,"IPS","Intressé par la création et proche de l'utilisateur"),#hypothèse 6: creation de contenu + proche de l'utilisateur = IPS (4 points)
+    Hypothese({8:"ENSIMERSION",3:"UX/UI"},4,"Ips","ENSIMERSION et UX/UI"),#hypothèse 7: ENSIMERSION + UX/UI = TPS (2 points)
+    Hypothese({5:"!Non",3:"Domotique,Robotique"},4,"Astre","A démonté quelque chose et est intéressé par la robotique/domotique"),#hypothèse 8: démonté quelque chose + domotique/robotique = astre (4 points)
+    Hypothese({3:"Robotique",16:"Le fonctionnel"},4,"Astre","robotique et le fonctionnel"),#hypothèse 9:Robotique + fonctionnel = Astre (3 points)
+    Hypothese({3:"Frontend / Backend"},3,"IPS","backend/frontend et esthétique")#hypothèse 10: frotend/backend + esthétique = IPS (3 points)
 ]
 
 import json
@@ -64,7 +65,7 @@ def load_hypotheses(input_json):
         allHypothese = []
         for hypothesis in json_hypotheses:
             tests = {int(k): v for k, v in hypothesis['tests'].items()}
-            allHypothese.append(Hypothese(tests, hypothesis['poids'], hypothesis['option']))
+            allHypothese.append(Hypothese(tests, hypothesis['poids'], hypothesis['option'],hypothesis['details']))
     return allHypothese
 
 def process_data_and_write_to_json(input_csv, output_json,allHypothese):
@@ -115,6 +116,6 @@ def process_data_and_write_to_json(input_csv, output_json,allHypothese):
         file.write("}")
 
 if(__name__ == "__main__"):
-    #save_hypotheses_to_json(allHypothese, 'hypotheses.json')
-    allHypothese = load_hypotheses('hypotheses.json')
-    process_data_and_write_to_json("data_cleaned.csv","result.json")
+    save_hypotheses_to_json(allHypothese, 'hypotheses.json')
+    #allHypothese = load_hypotheses('hypotheses.json')
+    #process_data_and_write_to_json("data_cleaned.csv","result.json")
