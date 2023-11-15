@@ -1,6 +1,6 @@
 [
     {
-        "poids": 4,
+        "poids": 5,
         "tests": {
             "1": "C",
             "4": "Arduino"
@@ -9,7 +9,7 @@
         "details": "C + Arduino"
     },
     {
-        "poids": 3,
+        "poids": 4,
         "tests": {
             "6": "Construire des choses",
             "3": "UX/UI"
@@ -43,7 +43,7 @@
         "details": "Redstone dans minecraft et Robtique/Domotique"
     },
     {
-        "poids": 4,
+        "poids": 5,
         "tests": {
             "14": "Créer du contenu",
             "11": ">4"
@@ -52,7 +52,7 @@
         "details": "Intressé par la création et proche de l'utilisateur"
     },
     {
-        "poids": 4,
+        "poids": 2,
         "tests": {
             "8": "ENSIMERSION",
             "3": "UX/UI"

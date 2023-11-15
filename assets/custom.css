@@ -77,3 +77,7 @@ table {
 .rc-slider-handle:active {
   border-color: #032F3E;
 }
+
+body{
+  background-color: lightblue;
+}

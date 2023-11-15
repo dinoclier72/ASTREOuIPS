@@ -3,7 +3,7 @@ from dash import dcc, html, Input, Output
 import json
 import engine
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__,title='Astre ou IPS')
 
 # Function to read data from the JSON file
 def read_json_file(file_path):
@@ -28,7 +28,8 @@ num_ips = sum(1 for result in results if result == 'IPS')
 num_astres = sum(1 for result in results if result == 'Astre')
 
 app.layout = html.Div(children=[
-    html.H1('Option Astre ou IPS', style={'textAlign': 'center'}),
+    html.H1('Astre ou IPS', style={'textAlign': 'center'}),
+    html.P("Ce dashboard permet de visualiser les options que les étudiants vont choisir selon des hypothèses, vous pouvez modifier les poids de chaque hypothèse grâce aux slider dans la setion ci-dessous"),
     html.Div(className='hypothesis-container', children=[
 html.Div(className='hypothesis', children=[
     html.Label("hypothèse "+str(i+1)+" "+hypothesis.option+":"+hypothesis.details+" "),
@@ -80,10 +81,12 @@ def update_graph(*weights):
     num_ips = sum(1 for result in results if result == 'IPS')
     num_astres = sum(1 for result in results if result == 'Astre')
 
+    colors = ['#1F77B4' if result == 'IPS' else '#FF7F0E' for result in results]
+
     fig = {
         'data': [
-            {'x': identifiers, 'y': ips_scores, 'type': 'bar', 'name': 'IPS'},
-            {'x': identifiers, 'y': astre_scores, 'type': 'bar', 'name': 'Astre'},
+            {'x': identifiers, 'y': ips_scores, 'type': 'bar', 'name': 'IPS', 'marker': {'color': colors}},
+            {'x': identifiers, 'y': astre_scores, 'type': 'bar', 'name': 'Astre', 'marker': {'color': colors}},
             {'x': identifiers, 'y': text_height, 'type': 'text', 'text': results, 'mode': 'text',
              'textfont': {'color': 'black'}, 'name': 'Texte de résultat'}
         ],
@@ -91,7 +94,8 @@ def update_graph(*weights):
             'xaxis': {'title': 'Numéro étudiants'},
             'yaxis': {'title': 'Scores'},
             'barmode': 'relative',
-            'plot_bgcolor': 'rgba(0,0,0,0)'
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'lightblue'
         }
     }
     # Create the table

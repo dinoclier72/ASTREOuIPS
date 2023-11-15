@@ -25,7 +25,7 @@ class Profil:
          self.score_astre += valeur
     def decision(self):
         if(self.score_ips == self.score_astre):
-            self.resultat_final = "None"
+            self.resultat_final = "Rien"
         elif(self.score_ips > self.score_astre):
             self.resultat_final = "IPS"
         else:
