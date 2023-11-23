@@ -29,7 +29,7 @@ num_astres = sum(1 for result in results if result == 'Astre')
 
 app.layout = html.Div(children=[
     html.H1('Astre ou IPS', style={'textAlign': 'center'}),
-    html.P("Ce dashboard permet de visualiser les options que les étudiants vont choisir selon des hypothèses, vous pouvez modifier les poids de chaque hypothèse grâce aux slider dans la setion ci-dessous"),
+    html.P("Ce dashboard permet de visualiser les options que les étudiants vont choisir selon des hypothèses, vous pouvez modifier les poids de chaque hypothèse grâce aux sliders dans la section ci-dessous"),
     html.Div(className='hypothesis-container', children=[
 html.Div(className='hypothesis', children=[
     html.Label("hypothèse "+str(i+1)+" "+hypothesis.option+":"+hypothesis.details+" "),

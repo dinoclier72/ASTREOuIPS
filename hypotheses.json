@@ -6,7 +6,7 @@
             "4": "Arduino"
         },
         "option": "Astre",
-        "details": "C + Arduino"
+        "details": "Aime le C et Arduino"
     },
     {
         "poids": 4,
@@ -15,7 +15,7 @@
             "3": "UX/UI"
         },
         "option": "Ips",
-        "details": "UX/UI + construction dans mincraft"
+        "details": "Connait l'UX/UI et construit des choses dans minecraft"
     },
     {
         "poids": 1,
@@ -23,7 +23,7 @@
             "15": "!France"
         },
         "option": "IPS",
-        "details": "Etranger"
+        "details": "Est un étranger"
     },
     {
         "poids": 2,
@@ -31,7 +31,7 @@
             "17": "Je ne prends pas de sac à dos,Mon pc portable only"
         },
         "option": "IPS",
-        "details": "Pas de sac ou que le pc portable"
+        "details": "n'emmène pas de sac ou a seulement son PC portable"
     },
     {
         "poids": 4,
@@ -40,7 +40,7 @@
             "3": "Domotique,Robotique"
         },
         "option": "Astre",
-        "details": "Redstone dans minecraft et Robtique/Domotique"
+        "details": "Fait de la Redstone dans minecraft et aime la Robtique/Domotique"
     },
     {
         "poids": 5,
@@ -49,7 +49,7 @@
             "11": ">4"
         },
         "option": "IPS",
-        "details": "Intressé par la création et proche de l'utilisateur"
+        "details": "Intéressé par la création et souhaite être proche de l'utilisateur"
     },
     {
         "poids": 2,
@@ -58,7 +58,7 @@
             "3": "UX/UI"
         },
         "option": "Ips",
-        "details": "ENSIMERSION et UX/UI"
+        "details": "Est dans ENSIMERSION et aime l'UX/UI"
     },
     {
         "poids": 4,
@@ -76,7 +76,7 @@
             "16": "Le fonctionnel"
         },
         "option": "Astre",
-        "details": "robotique et le fonctionnel"
+        "details": "Est intéressé par la robotique et aime le fonctionnel"
     },
     {
         "poids": 3,
@@ -84,6 +84,6 @@
             "3": "Frontend / Backend"
         },
         "option": "IPS",
-        "details": "backend/frontend et esthétique"
+        "details": "Aime le backend/frontend et l'esthétique"
     }
 ]

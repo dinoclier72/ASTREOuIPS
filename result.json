@@ -2,7 +2,6 @@
 	"profiles":[
 		{"identifiant": "e2304411", "score_ips": 3, "score_astre": 8, "resultat_final": "Astre"},
 		{"identifiant": "e2302865", "score_ips": 0, "score_astre": 4, "resultat_final": "Astre"},
-		{"identifiant": "e2302916", "score_ips": 14, "score_astre": 8, "resultat_final": "IPS"},
 		{"identifiant": "e2302910", "score_ips": 0, "score_astre": 4, "resultat_final": "Astre"},
 		{"identifiant": "S2104315", "score_ips": 11, "score_astre": 0, "resultat_final": "IPS"},
 		{"identifiant": "e2103333", "score_ips": 2, "score_astre": 8, "resultat_final": "Astre"},
@@ -15,6 +14,6 @@
 		{"identifiant": "e2304479", "score_ips": 3, "score_astre": 8, "resultat_final": "Astre"},
 		{"identifiant": "u2107883", "score_ips": 4, "score_astre": 17, "resultat_final": "Astre"},
 		{"identifiant": "e2203685", "score_ips": 4, "score_astre": 0, "resultat_final": "IPS"},
-		{"identifiant": "e2302916bis", "score_ips": 3, "score_astre": 5, "resultat_final": "Astre"}
+		{"identifiant": "e2302916", "score_ips": 3, "score_astre": 5, "resultat_final": "Astre"}
 	]
 }

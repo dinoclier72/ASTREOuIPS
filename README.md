@@ -1,7 +1,7 @@
 # ASTREOuIPS
 # Principe
-Ce projet ce base sur l'analyse d'un corpus de donnée receuillis auprès d'élèves de 3ème année informatique de l'ENSIM (Ecole Nationale Supérieur des Ingénieurs du Mans), afin de déterminer si les élèves sont plus attiré par la filière ASTRE (Architecture des Systèmes Temps Réel Embarqués) ou IPS (Interaction Personne Système).
-Pour avoir notre corpus nous avons crée un questionaire de 17 questions:
+Ce projet se base sur l'analyse d'un corpus de données recueillies auprès d'élèves de 3ème année informatique de l'ENSIM (École Nationale Supérieur des Ingénieurs du Mans), afin de déterminer si les élèves sont plus attirés par la filière ASTRE (Architecture des Systèmes Temps Réel Embarqués) ou IPS (Interaction Personne Système).
+Pour avoir notre corpus nous avons créé un questionnaire de 17 questions:
 1. Quel est ton numéro étudiant ? (eXXXXXX, iXXXXXX ...)
    - Reponse courte
 2. Quel est ton langage de programmation préféré ?(choix unique)
@@ -104,16 +104,15 @@ Pour avoir notre corpus nous avons crée un questionaire de 17 questions:
     - Papier, crayon, trousse, la base
     - Mon pc portable only 
 # Installation
-Pour installer le programme il suffit de cloner le dépôt git et d'installer les dépendances avec pip:
+Pour installer le programme il suffit de cloner le dépôt git et d'installer les dépendances avec pip, ensuite vous pouvez lancer le programme avec python.
 ```bash
 git clone https://github.com/dinoclier72/ASTREOuIPS.git
 cd ASTREOuIPS
 pip install -r requirements.txt
 python dashboard.py
 ```
-ensuite vous serrez libre de traiter le fichier data.csv en lançant le script engine.py puis le script graph.py pour avoir un affichage graphique des résultats.
 # Fonctionnement
-Pour mon fonctionnement j'ai décidé d'utiliser un système de classe pour stocker à la fois les réultats sous forme de profils, qui seront ensuite extrait sous forme de json avec le script engine.py pour être ensuite traité par le script dashboard.py qui va générer un graphique des résultats.
+Pour mon fonctionnement j'ai décidé d'utiliser un système de classes pour stocker à la fois les résultats sous forme de profils, qui seront ensuite extraits sous forme de json avec le script engine.py pour être ensuite traité par le script dashboard py qui va générer un graphique des résultats.
 ```mermaid
 classDiagram
       class Profil{
@@ -130,7 +129,7 @@ classDiagram
             +String option
       }
 ```
-l'avantage d'un tel système est que pour formuler une hypothèse, il suffit de l'ajouter à la liste des hypothèse avec un simple ajout dans le code comme ceci:
+l'avantage d'un tel système est que pour formuler une hypothèse, il suffit de l'ajouter à la liste des hypothèses avec un simple ajout dans le code comme ceci:
 ```python
 #hypothèse 1: C + arduino = AStre (3points)
 Hypothese({1:"C",4:"Arduino"},3,"Astre")
@@ -164,9 +163,9 @@ J'ai utilisé les données que j'avais à ma disposition ainsi que les hypothès
 Ce qui donne un résultat comme celui-ci:
 
 ![graphique des résultats](results/1/chart.png)
-Les premières hypothèses ont comme problème que certains étudians n'ont pas beaucoup de point pour une matière ou l'autre ainsi que d'autre ne correspondent à aucune de mes hypothèses formulée. Ce qui demande un réiquilibrae des poids de chaque hypothèse ainsi qu'un ajout de nouvelle hypothèses plus étendue.
+Les premières hypothèses ont comme problème que certains étudiants n'ont pas beaucoup de points pour une matière ou l'autre ainsi que d'autres ne correspondent à aucune de mes hypothèses formulée. Ce qui demande un rééquilibre des poids de chaque hypothèse ainsi qu'un ajout de nouvelle hypothèse plus étendue.
 ## Résultats finaux
-Suite à ces observation j'ai mis en place de nouvelles hypothèses et ai résolu un bug qui empêchait certaines hypothèse d'être reconnues. Les hypothèses sont les suivantes:
+Suite à ces observations j'ai mis en place de nouvelles hypothèses et est résolu un bug qui empêchait certaines hypothèses d'être reconnu. Les hypothèses sont les suivantes:
 1. C + arduino = AStre
 2. construction dans minecraft + uX/UI = IPS
 3. étranger = IPS
@@ -177,6 +176,9 @@ Suite à ces observation j'ai mis en place de nouvelles hypothèses et ai résol
 8. démonté quelque chose + domotique/robotique = astre 
 9. aime la robtique et le fonctionnel = ASTRE
 10. connait le frontend/backend et aime l'estétique = IPS
+
 ![graphique intermédiaire](results/2/plot.png)
 Avec ces nouvelles hypothèses, nous avons un résultat qui touche plus de personnes, il restera juste à trouver les poids idéaux pour chaque hypothèse.
+
 ![graphique final](results/3/plot.png)
+Avec un équilibrage des poids, nous pouvons voir que les résultats sont plus équilibrés et que les personnes qui ne correspondaient à aucune hypothèse sont maintenant réparties entre les deux filières.
